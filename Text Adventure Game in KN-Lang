@@ -43,7 +43,7 @@ Squad GameManager
   Doodle initializeGame()
     player = Player()
     player.setName("Heroine")
-    rooms.push(Room(description = "You’re in a dimly lit room with a mysterious door."))
+    rooms.push(Room(description = "You’re in dimly lit room that appears to be in a state of disrepair, similar to a slumlord's basement with a mysterious door."))
     player.changeRoom(rooms[0])
     print("Welcome, Heroine! The adventure begins!")
     // Just Saying: Start of the adventurous game!

@@ -1,1 +1,81 @@
+// Just Saying: The Player Squad tracks the player's details
+Squad Player
+  Quark name
+  Quark inventory = []
+  Quark currentRoom
+
+  Doodle setName(newName)
+    name = newName
+    // Just Saying: Player's name is now set!
+
+  Doodle addItem(item)
+    inventory.push(item)
+    // Just Saying: You added a new item to your inventory!
+
+  Doodle changeRoom(room)
+    currentRoom = room
+    // Just Saying: You’re now in a new room!
+
+// Just Saying: The Room Squad handles room details and interactions
+Squad Room
+  Quark description
+  Quark items = []
+
+  Doodle addItem(item)
+    items.push(item)
+    // Just Saying: You just put an item in this room!
+
+  Doodle describeRoom()
+    print(description)
+    // Just Saying: Room description shown to the player.
+
+  Doodle interactWithItem(item)
+    if item is in items
+      print("You interact with the " + item + ". It's... interesting.")
+    else
+      print("There's no " + item + " here. Nice try though!")
+      // Just Saying: Humor for failed interactions
+
+// Just Saying: The GameManager Squad controls the main game loop and flow
+Squad GameManager
+  Quark rooms = []
+  Quark player
+
+  Doodle initializeGame()
+    player = Player()
+    player.setName("Hero")
+    rooms.push(Room(description = "You’re in a dimly lit room with a mysterious door."))
+    player.changeRoom(rooms[0])
+    print("Welcome, Hero! The adventure begins!")
+    // Just Saying: Start of the adventure!
+
+  Doodle startGameLoop()
+    SpinCycle
+      print("You're currently in: " + player.currentRoom.description)
+      userInput = getInput()
+
+      // Just Saying: Player actions
+      if userInput == "go north"
+        player.changeRoom(rooms[1])
+        print("You head north into the next room.")
+      else if userInput == "inventory"
+        print(player.inventory)
+        // Just Saying: Show the player’s inventory
+      else if userInput == "pick up key"
+        player.addItem("key")
+        print("Picked up a shiny key.")
+      else if userInput == "open door"
+        if "key" in player.inventory
+          print("You unlock the door and step through!")
+        else
+          print("The door mocks you silently. Maybe it’s missing something?")
+          // Just Saying: Need a key to open the door
+      else
+        print("The game looks at you quizzically. Did you type that wrong?")
+        // Just Saying: Humor for invalid input
+
+// Just Saying: Initialize and start the game
+game = GameManager()
+game.initializeGame()
+game.startGameLoop()
 

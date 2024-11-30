@@ -1,5 +1,4 @@
-// Just Saying: The Player Squad tracks the player's details
-Squad Player
+// Just Saying:Creating a Player Suad to track the Player's information Squad Player
   Quark name
   Quark inventory = []
   Quark currentRoom
@@ -16,14 +15,14 @@ Squad Player
     currentRoom = room
     // Just Saying: You’re now in a new room!
 
-// Just Saying: The Room Squad handles room details and interactions
+// Just Saying: The Squad Room handles room details and interactions
 Squad Room
   Quark description
   Quark items = []
 
   Doodle addItem(item)
     items.push(item)
-    // Just Saying: You just put an item in this room!
+    // Just Saying: put an item in this room!
 
   Doodle describeRoom()
     print(description)
@@ -43,11 +42,11 @@ Squad GameManager
 
   Doodle initializeGame()
     player = Player()
-    player.setName("Hero")
+    player.setName("Heroine")
     rooms.push(Room(description = "You’re in a dimly lit room with a mysterious door."))
     player.changeRoom(rooms[0])
-    print("Welcome, Hero! The adventure begins!")
-    // Just Saying: Start of the adventure!
+    print("Welcome, Heroine! The adventure begins!")
+    // Just Saying: Start of the adventurous game!
 
   Doodle startGameLoop()
     SpinCycle
